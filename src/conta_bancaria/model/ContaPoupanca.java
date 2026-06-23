@@ -1,12 +1,12 @@
 package conta_bancaria.model;
 
-public class ContaPoupanca {
+public class ContaPoupanca extends Conta{
 	
 	private int aniversario;
 	
 	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, int aniversario) {
 		super(numero, agencia, tipo, titular, saldo);
-		this.aniversario;
+		this.aniversario = aniversario;
 		
 	}
 
@@ -14,9 +14,14 @@ public class ContaPoupanca {
 		return aniversario;
 	}
 
-	public void setDiaAniversario(int diaAniversario) {
+	public void setDiaAniversario(int aniversario) {
 		this.aniversario = aniversario;
 	}
 	
-	
+	 @Override
+		public void visualizar() {
+			super.visualizar();
+			System.out.println("Aniversário da conta: dia " + this.aniversario);
+	}
+	    
 }

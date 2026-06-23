@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -44,16 +45,21 @@ public class Menu {
 //		
 //		/* Instanciar Objetos da Classe ContaCorrente */
 	
-		ContaCorrente cc1 = new ContaCorrente(3, 789, 1, "Raquel", 200000.00f, 2000.00f);
-		cc1.visualizar();
-		System.out.println("\nSacar R$ 203.000,00 da conta C2: " + (cc1.sacar(203000.00f) ? 
-				"Saque efetuado com sucesso!" + cc1.getSaldo() : "Saldo Insuficiente | Saldo: " + cc1.getSaldo()));
-		
-		System.out.println("\nSacar R$ 202.000,00 da conta C2: " + (cc1.sacar(202000.00f) ? 
-				"Saque efetuado com sucesso! Saldo: " + cc1.getSaldo() : "Saldo Insuficiente"));
-		
-		cc1.depositar(2000.00f);
-		cc1.visualizar();
+//		ContaCorrente cc1 = new ContaCorrente(3, 789, 1, "Raquel", 200000.00f, 2000.00f);
+//		cc1.visualizar();
+//		System.out.println("\nSacar R$ 203.000,00 da conta C2: " + (cc1.sacar(203000.00f) ? 
+//				"Saque efetuado com sucesso!" + cc1.getSaldo() : "Saldo Insuficiente | Saldo: " + cc1.getSaldo()));
+//		
+//		System.out.println("\nSacar R$ 202.000,00 da conta C2: " + (cc1.sacar(202000.00f) ? 
+//				"Saque efetuado com sucesso! Saldo: " + cc1.getSaldo() : "Saldo Insuficiente"));
+//		
+//		cc1.depositar(2000.00f);
+//		cc1.visualizar();
+        
+        ContaPoupanca cp1 = new ContaPoupanca(1, 123, 1, "Guilherme", 1000.00f, 9);
+        cp1.visualizar();
+        cp1.depositar(1000.0f);
+        cp1.visualizar();
 	
 		
 		
