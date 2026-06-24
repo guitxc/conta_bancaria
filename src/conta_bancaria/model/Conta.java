@@ -98,6 +98,4 @@ public abstract class Conta {
 		System.out.printf("Nome do titular: %s%n", this.titular);
 		System.out.printf("Saldo da conta: %.2f%n", this.saldo);
 	}
-	
-	
 }
