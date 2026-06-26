@@ -35,6 +35,7 @@ public class Menu {
             System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*                                  6 - Sacar                                                        *");
             System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*                                  7 - Depositar                                                    *");
             System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*                                  8 - Transferir valores entre Contas                              *");
+            System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*                                  9 - Consulta por nome do titular                                 *");
             System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*                                  0 - Sair                                                         *");
             System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*                                                                                                   *");
             System.out.println(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_RED_UNDERLINED + "*****************************************************************************************************");
@@ -47,7 +48,7 @@ public class Menu {
             	sc.nextLine();
             } catch (InputMismatchException e) {
             	opcao = -1;
-            	System.out.println("Digite um número inteiro entre 0 e 8. ");
+            	System.out.println("Digite um número inteiro entre 0 e 9. ");
             	sc.nextLine();
             }
             
@@ -86,14 +87,22 @@ public class Menu {
                     break;
                 case 6:
                     System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
+                    sacar();
                     keyPress();
                     break;
                 case 7:
                     System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
+                    depositar();
                     keyPress();
                     break;
                 case 8:
                     System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
+                    transferir();
+                    keyPress();
+                    break;
+                case 9:
+                    System.out.println(Cores.TEXT_WHITE + "Consulta por nome do Titular\n\n");
+                    listarPorTitular();
                     keyPress();
                     break;
                 default:
@@ -263,4 +272,50 @@ public class Menu {
     	}
     	
     }
+    
+    public static void sacar() {
+    	System.out.println("Digite o numero da conta: ");
+    	int numero = sc.nextInt();
+    	
+    	System.out.println("Digite o valor do saque: ");
+    	float valor = sc.nextFloat();
+    	sc.nextLine();
+    	
+    	contaController.sacar(numero, valor);
+    	
+    }
+    
+    public static void depositar() {
+    	System.out.println("Digite o numero da conta: ");
+    	int numero = sc.nextInt();
+    	
+    	System.out.println("Digite o valor do deposito: ");
+    	float valor = sc.nextFloat();
+    	
+    	contaController.depositar(numero, valor);
+    	
+    }
+    
+    public static void transferir() {
+    	
+    	System.out.println("Digite o numero da conta de origem: ");
+    	int numeroOrigem = sc.nextInt();
+    	
+    	System.out.println("Digite o numero da conta de destino: ");
+    	int numeroDestino = sc.nextInt();
+    	
+    	System.out.println("Digite o valor da transferência: ");
+    	float valor = sc.nextFloat();
+    	sc.nextLine();
+    	
+    	contaController.transferir(numeroOrigem, numeroDestino, valor);
+    }
+    
+    public static void listarPorTitular() {
+    	System.out.println("Digite o nome do titular da conta: ");
+    	String titular = sc.nextLine();
+    	
+    	contaController.listarPorTitular(titular);
+    }
+    
 }
